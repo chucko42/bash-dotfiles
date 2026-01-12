@@ -78,4 +78,4 @@ host_color() {
 ###############################################
 PROMPT_COMMAND='history -a; history -n; last_status=$?'
 # Default prompt (home mode)
-PS1='$(line)[\d \A] \[\e[0;36m\]\w\[\e[m\]$(git_branch)\n$( [[ $last_status -ne 0 ]] && printf "\[\e[1;31m\](%s)\[\e[m\] " "$last_status" )[\u@\$(host_color)\h\[\e[m\] #\!]\$ '
+PS1="$(line)[\d \A] \[\e[0;36m\]\w\[\e[m\]$(git_branch)\n$( [[ $last_status -ne 0 ]] && printf "\[\e[1;31m\](%s)\[\e[m\] " "$last_status" )[\u@$(host_color)\h\[\e[m\] #\!]\$ "
