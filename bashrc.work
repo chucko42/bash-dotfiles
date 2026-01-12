@@ -1,0 +1,12 @@
+export WORK_ENV=1
+
+PRIMARY_IP=$(hostname -I | awk '{print $1}')
+
+if [[ -z "$SERVER_ROLE" ]]; then
+    PRIMARY_IP=$(hostname -I | awk '{print $1}')
+    case "$PRIMARY_IP" in
+        192.168.212.*) export SERVER_ROLE=prod ;;
+        192.168.109.*) export SERVER_ROLE=test ;;
+        *)             export SERVER_ROLE=unknown ;;
+    esac
+fi
